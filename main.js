@@ -60,7 +60,7 @@ function addTodo() {
     //     })
     //     .catch(err => console.error(err));
 
-    // 2️⃣ 
+    // 2️⃣  SHORTER:
     axios
         .post('https://jsonplaceholder.typicode.com/todos', {
             title: 'New Todo',
@@ -80,36 +80,98 @@ function addTodo() {
 // }
 
 
+// 🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩
 // PUT/PATCH REQUEST
+// 🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰
+// PUT: TO REPLACE ENTIRE RESOURCE
+// PATCH: UPDATES IT INCREMENTALLY
+
+// HAVE TO INCLUDE THE ID IN THE URL
+// THE USER ID WILL BE GONE IN RESPONSE
+
+// function updateTodo() {
+//     console.log('PUT/PATCH Request');
+
+//     axios
+//         .put('https://jsonplaceholder.typicode.com/todos/1', {
+//             title: 'Updated Todo',
+//             completed: true
+//         })
+//         .then(res => showOutput(res))
+//         .catch(err => console.error(err));
+
+// }
+
+// DATA WILL INCLUDE USER ID, WE DIDN'T REPLACE IT, IT ONLY REPLACED WHAT WE SPECIFIED (TITLE, COMPLETED)
 function updateTodo() {
     console.log('PUT/PATCH Request');
+
+    axios
+        .patch('https://jsonplaceholder.typicode.com/todos/1', {
+            title: 'Updated Todo',
+            completed: true
+        })
+        .then(res => showOutput(res))
+        .catch(err => console.error(err));
+
 }
 
+// 🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩
 // DELETE REQUEST
+// 🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰
+
+// DON'T PASS DATA IN AS WE'RE SIMPLY DELETING IT
 function removeTodo() {
     console.log('DELETE Request');
+
+    axios
+        .delete('https://jsonplaceholder.typicode.com/todos/1')
+        .then(res => showOutput(res))
+        .catch(err => console.error(err));
+
 }
 
-// SIMULTANEOUS DATA
+// RESPONSE WILL RETURN AN EMPTY OBJECT BUT EVERY API CAN BE DIFFERENT
+
+// 🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩
+// SIMULTANEOUS DATA (GET POSTS AND TODOS AT THE SAME TIME)
+// 🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰
+// AXIOS.ALL
+
 function getData() {
     console.log('Simultaneous Request');
 }
 
+
+// 🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩
+// 
+// 🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰
 // CUSTOM HEADERS
 function customHeaders() {
     console.log('Custom Headers');
 }
 
+
+// 🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩
+// 
+// 🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰
 // TRANSFORMING REQUESTS & RESPONSES
 function transformResponse() {
     console.log('Transform Response');
 }
 
+
+// 🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩
+// 
+// 🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰
 // ERROR HANDLING
 function errorHandling() {
     console.log('Error Handling');
 }
 
+// 🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩
+// 
+// 🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰 
 // CANCEL TOKEN
 function cancelToken() {
     console.log('Cancel Token');
